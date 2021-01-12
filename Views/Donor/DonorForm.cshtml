@@ -1,0 +1,71 @@
+﻿@model Blood_Donation_Management_System.ViewModel.DonorNewViewmodel
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Donor</h2>
+
+
+@using (Html.BeginForm("Save", "Donor"))
+    {
+
+<div class="form-group">
+    <label for="Donorname">Name</label>
+    @Html.TextBoxFor(d => d.donor.DonorName, new { @class = "form-control" })
+</div>
+
+    <div class="form-group">
+        <label for="DonorAddress">Address</label>
+        @Html.TextBoxFor(d => d.donor.DonorAddress, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="Email">Email</label>
+        @Html.TextBoxFor(d => d.donor.Email, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="MobileNo">Mobile Number</label>
+        @Html.TextBoxFor(d => d.donor.MobileNo, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="TelephoneNo">Telephone Number</label>
+        @Html.TextBoxFor(d => d.donor.TelephoneNo, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="PreviouslyDonatedDate">Date of Last Donation</label>
+        @Html.TextBoxFor(d => d.donor.PreviouslyDonatedDate, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.donor.GenderId)
+       
+        @Html.DropDownListFor(d => d.donor.GenderId, new SelectList(Model.Genders, "Id", "GenderType"), "Choose Your Gender", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="DateOfBirth">Date of Birth</label>
+        @Html.TextBoxFor(d => d.donor.DateOfBirth," {0: d MMM yyyy}", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="BloodGroup">Blood Group</label>
+        @Html.TextBoxFor(d => d.donor.BloodGroup, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label for="CreatedBy">Created by</label>
+        @Html.TextBoxFor(d => d.donor.CreatedBy, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="CreatedDate">Created Date</label>
+        @Html.TextBoxFor(d => d.donor.CreatedDate, new { @class = "form-control" })
+    </div>
+
+    @Html.HiddenFor( d=> d.donor.Id)
+       <button type="submit" class="btn btn-primary">Save </button>
+
+ }
